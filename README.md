@@ -1,5 +1,53 @@
 # openGemi
 
+**Open-source mobile AI agents using the VirtualDisplay infrastructure Google built but locked away.**
+
+**基于 Google 构建但锁起来的 VirtualDisplay 基础设施的开源移动 AI 代理。**
+
+---
+
+### TL;DR
+
+Google built a complete system in Android 17 that lets AI agents control your phone without taking over your screen. They locked it to Gemini on Pixel devices only. We reverse-engineered it, removed the restrictions, and made it work with any AI model (Claude, GPT-4, Llama, etc.) on any Android 17+ device.
+
+**简而言之**：Google 在 Android 17 里造了一套完整的系统，能让 AI 代理控制你的手机而不占用你的屏幕。但他们把它锁定为 Pixel 设备上的 Gemini 专用。我们逆向了它，移除了限制，让它可以在任何 Android 17+ 设备上使用任何 AI 模型（Claude、GPT-4、Llama 等）。
+
+---
+
+### Why This Matters
+
+- **Google solved mobile AI automation** - VirtualDisplay lets AI and human use the phone simultaneously, zero conflict
+- **But kept it closed** - Six security gates lock it to Gemini + Pixel only
+- **We opened it** - Any model, any device (that runs Android 17)
+
+**为什么重要**：
+- **Google 解决了移动 AI 自动化问题** - VirtualDisplay 让 AI 和人类同时使用手机，零冲突
+- **但保持封闭** - 六道安全门将其锁定为 Gemini + Pixel 专用
+- **我们打开了它** - 任何模型，任何设备（运行 Android 17）
+
+---
+
+### What You Get
+
+```
+Your Phone = Two Phones
+
+┌─────────────────────┐     ┌─────────────────────┐
+│   Physical Screen   │     │   Virtual Screen    │
+│                     │     │                     │
+│   You:              │     │   AI Agent:         │
+│   - Browse          │     │   - Book restaurant │
+│   - Watch videos    │     │   - Compare prices  │
+│   - Reply messages  │     │   - Fill forms      │
+│                     │     │                     │
+│   No interference   │ ←→  │   No interference   │
+└─────────────────────┘     └─────────────────────┘
+```
+
+**你获得的**：你的手机 = 两个手机，物理屏幕给你用，虚拟屏幕给 AI 用，互不干扰。
+
+---
+
 ## What Google Secretly Built in Android 17
 
 You've probably never heard of this feature.
