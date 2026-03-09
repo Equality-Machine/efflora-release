@@ -1,8 +1,9 @@
-# openGemi
+# OpenGemi
+### Your Phone, Any AI
 
 **Open-source mobile AI agents using the VirtualDisplay infrastructure Google built but locked away.**
 
-**基于 Google 构建但锁起来的 VirtualDisplay 基础设施的开源移动 AI 代理。**
+**把 Google 限制在 Pixel + Gemini 的 AI 自动化能力，解放给所有 Android 设备和所有 AI 模型。**
 
 ---
 
@@ -10,7 +11,7 @@
 
 Google built a complete system in Android 17 that lets AI agents control your phone without taking over your screen. They locked it to Gemini on Pixel devices only. We reverse-engineered it, removed the restrictions, and made it work with any AI model (Claude, GPT-4, Llama, etc.) on any Android 17+ device.
 
-**简而言之**：Google 在 Android 17 里造了一套完整的系统，能让 AI 代理控制你的手机而不占用你的屏幕。但他们把它锁定为 Pixel 设备上的 Gemini 专用。我们逆向了它，移除了限制，让它可以在任何 Android 17+ 设备上使用任何 AI 模型（Claude、GPT-4、Llama 等）。
+**一句话总结**：Google 在 Android 17 里造了一套 AI 控制手机的系统，但只给自己的 Gemini + Pixel 用。我们把它破解了，现在任何 Android 17+ 设备都能用任何 AI 模型。
 
 ---
 
@@ -21,9 +22,9 @@ Google built a complete system in Android 17 that lets AI agents control your ph
 - **We opened it** - Any model, any device (that runs Android 17)
 
 **为什么重要**：
-- **Google 解决了移动 AI 自动化问题** - VirtualDisplay 让 AI 和人类同时使用手机，零冲突
-- **但保持封闭** - 六道安全门将其锁定为 Gemini + Pixel 专用
-- **我们打开了它** - 任何模型，任何设备（运行 Android 17）
+- **Google 解决了移动 AI 自动化的核心问题** - AI 和人可以同时用手机，互不干扰
+- **但只给自己用** - 六道门锁死，只能 Gemini + Pixel
+- **我们打开了** - 任何 AI，任何设备（只要跑 Android 17）
 
 ---
 
@@ -44,7 +45,7 @@ Your Phone = Two Phones
 └─────────────────────┘     └─────────────────────┘
 ```
 
-**你获得的**：你的手机 = 两个手机，物理屏幕给你用，虚拟屏幕给 AI 用，互不干扰。
+**你得到的是**：一个手机变两个，一个给你用，一个给 AI 用，谁都不耽误谁。
 
 ---
 
@@ -62,17 +63,17 @@ But you've probably never heard of it. Because Google locked it behind six layer
 
 ---
 
-Google 在 Android 17 里悄悄造了什么
+**Google 在 Android 17 里偷偷藏了什么**
 
-你大概从来没听说过这个功能。
+你大概从来没听说过。
 
-Google 在移动操作系统里埋下了一个野心极大的 AI 功能，藏在 Android 17 深处。有一套完整的系统，能让 AI 代理替你操作手机——启动应用、点击按钮、读取屏幕、完成任务——而且**全程不会抢占你正在看的那块屏幕**。
+Google 在 Android 17 里埋了个野心极大的功能。一整套系统，能让 AI 代理帮你操作手机——开应用、点按钮、读屏幕、完成任务——**而且完全不会抢你正在看的那块屏幕**。
 
-Google 对外称之为 **Screen Automation**，内部代号 **Bonobo**。
+对外叫 **Screen Automation**，内部代号 **Bonobo**。
 
-但你大概从来没听说过它。因为 Google 给它加了六层安全门，并且只允许自家的 AI（Gemini）在自家的手机（Pixel 10 及以后机型）上调用。这不是什么 Beta 功能，也不在设置菜单里。它深埋在系统底层，等着被激活。
+但你从没听说过，因为 Google 给它加了六道锁，只让自己的 AI（Gemini）在自己的手机（Pixel 10+）上用。这不是 Beta 功能，设置里也找不到。它就躺在系统底层，等着被激活。
 
-**这个项目就是要把那些门拆掉。**
+**这个项目就是要把锁砸开。**
 
 ---
 
@@ -90,17 +91,17 @@ This design solves the biggest problem in mobile automation: **who controls the 
 
 ---
 
-核心思路：一块只有 AI 能看到的第二屏幕
+**核心原理：一块只有 AI 能看见的第二屏幕**
 
-假设你正常地用着手机——刷消息、看视频、随便逛逛。现在想象手机内部还有一块你看不见的屏幕，AI 助手正在那块隐形屏幕上打开应用、填表单、查价格。等它忙完了，再把结果交给你。
+假设你正常用手机——刷消息、看视频、瞎逛。同时手机里还有一块你看不见的屏幕，AI 在那上面开应用、填表格、查价格。搞定了就把结果给你。
 
-**Google 做的就是这件事。**
+**Google 造的就是这个。**
 
-在技术层面叫 **VirtualDisplay**，但概念很简单：一块完全由软件实现的手机屏幕。应用可以在上面运行，按钮可以被点击，截图可以被获取——但它完全不会出现在你面前的物理屏幕上。它是 AI 的专属工作区。
+技术上叫 **VirtualDisplay**，概念很简单：纯软件虚拟出来的手机屏幕。应用能跑，按钮能点，截图能抓——但你物理屏幕上完全看不见。这是 AI 的专属工作台。
 
-这一设计解决了手机自动化最大的难题：**谁来控制屏幕？**之前所有让 AI 操作手机的方案都建立在同一个矛盾——AI 需要看到屏幕才能判断下一步，也需要控制屏幕才能执行操作；但如果你在用这块屏幕，一切就乱了。AI 点了个按钮，你被强制跳走；你滑了一下页面，AI 就懵了。
+这设计解决了手机自动化的最大难题：**屏幕到底归谁管？** 以前所有让 AI 操作手机的方案都有同一个矛盾——AI 要看屏幕才知道下一步干啥，要控制屏幕才能执行操作；但你在用屏幕的话，一切就乱套了。AI 点个按钮，你被强制跳走；你滑一下页面，AI 就懵了。
 
-**Google 的解法简洁可怕：直接给 AI 一块专属屏幕，你保留你的。互不干扰。**
+**Google 的解法简洁粗暴：给 AI 一块专属屏幕，你的还是你的。谁也不耽误谁。**
 
 ---
 
@@ -124,23 +125,23 @@ These aren't bugs or oversights. They're deliberate, layered security measures. 
 
 ---
 
-为什么你从来没见过这个功能
+**为什么你从没见过**
 
-既然这套系统如此精密，为什么没人在用？因为 Google 给它套了六层安全门，关死以后只给自家用了。长城之外，Google 体系之外的人都无法触及：
+这么牛的系统，怎么没人用？因为 Google 上了六道锁，然后只给自己用。长城之外，Google 生态之外的人碰都碰不到：
 
-1. **Feature Flag 默认关闭** - 整套系统由一个配置开关控制，而这个开关被硬编码为 `false`。就算其他条件全部满足，这一个开关就能让它保持休眠。
+1. **Feature Flag 默认关闭** - 整个系统一个开关控制，硬编码成 `false`。其他条件全满足也没用，这开关一关，系统就休眠。
 
-2. **权限校验** - 系统需要特定的权限，而这些权限对普通应用不开放——只有系统级组件才能申请。
+2. **权限校验** - 需要特殊权限，普通应用申请不了——只有系统级组件才行。
 
-3. **设备白名单** - 即便拿到了正确的权限，系统还会检查你的手机是否在批准名单上。目前这个名单只包含 Pixel 10 及更新的设备。
+3. **设备白名单** - 就算拿到权限，系统还要检查你手机在不在批准名单上。目前名单只有 Pixel 10 及以后的型号。
 
-4. **证书校验** - 试图使用该系统的应用必须由特定的加密证书签名。实际上，这意味着它必须是 Google 自己的软件。
+4. **证书校验** - 想用这系统的应用必须用特定的加密证书签名。实际上就是说，必须是 Google 自己的软件。
 
-5. **用户同意流程** - 在 AI 启动会话之前，用户必须明确同意。流程中置入了授权页面和确认弹窗。
+5. **用户同意流程** - AI 启动之前，用户必须明确同意。流程里有授权页、确认弹窗。
 
-6. **运行时拦截** - 就算你想尽办法通过了以上所有关卡，仍然有额外的运行时检查会在系统不满足时直接终止流程。
+6. **运行时拦截** - 就算你千辛万苦过了前面五关，还有额外的运行时检查，系统不爽就直接掐断。
 
-这些都不是 Bug，也不是疏忽。它们是有意为之的分层安全措施。Google 显然希望这套系统存在，但前提是它完全在自己的掌控之下——自己的 AI、自己的手机、自己的规则。
+这些不是 Bug，不是疏忽。是故意设计的多层防护。Google 显然想让这系统存在，但前提是完全在自己控制下——自己的 AI、自己的手机、自己的规矩。
 
 ---
 
@@ -150,21 +151,21 @@ A powerful, production-quality, platform-level AI automation system—locked to 
 
 VirtualDisplay doesn't care which AI is analyzing screenshots. Session control doesn't care which model decides where to tap next. The infrastructure itself is model-agnostic. The restrictions are artificial.
 
-**This is what openGemi does:**
+**This is what OpenGemi does:**
 
 Tear down those restrictions. Remove the artificial limits. Let anyone use the AI model of their choice—Claude, GPT-4, locally-run Llama, whatever—to control their own Android phone, using the infrastructure Google already built but locked away.
 
 ---
 
-但问题来了：这一切只能配合 Gemini 在 Pixel 上使用
+**问题在这：只能 Gemini + Pixel**
 
-一套强大的、工程质量过硬的、平台级的 AI 自动化系统——被锁死在一个 AI 供应商的一个手机品牌上。
+一套强大的、生产级的、平台级 AI 自动化系统——锁死在一个 AI 厂商的一个手机品牌上。
 
-VirtualDisplay 不关心是哪个 AI 在分析截图。Session 控制不关心是哪个模型在决定下一步点哪里。基础设施本身是通用的。限制是人为的。
+VirtualDisplay 不关心是哪个 AI 在分析截图。Session 控制不关心是哪个模型在决定下一步点哪。基础设施本身是模型无关的。限制是人为加上去的。
 
-**这就是 openGemi 要做的事：**
+**OpenGemi 就是干这个的：**
 
-把那些限制拆掉。移除人为的门槛。让任何人都能用自己选择的 AI 模型——Claude、GPT-4、本地运行的 Llama，whatever——来控制自己的 Android 手机，使用 Google 已经造好但藏起来的这套基础设施。
+把限制拆了。把人为设置的门槛去掉。让任何人都能用自己选的 AI 模型——Claude、GPT-4、本地跑的 Llama，随便什么——来控制自己的 Android 手机，用的就是 Google 已经造好但藏起来的这套基础设施。
 
 ---
 
@@ -205,7 +206,7 @@ Similar modifications applied to Feature Flags, permission checks, certificate v
 Google's Bonobo agent is hardcoded to connect: Robin protocol → Gemini Pro. We replaced it:
 
 ```
-openGemi Agent → OpenRouter Gateway → Any model you choose
+OpenGemi Agent → OpenRouter Gateway → Any model you choose
 ```
 
 OpenRouter is an AI model aggregator supporting:
@@ -215,7 +216,7 @@ OpenRouter is an AI model aggregator supporting:
 - Meta Llama 3.3
 - Plus dozens of other open-source/commercial models
 
-Just provide your API key, select a model, openGemi handles the rest.
+Just provide your API key, select a model, OpenGemi handles the rest.
 
 ### 4. Open-Source Everything
 
@@ -226,22 +227,22 @@ Just provide your API key, select a model, openGemi handles the rest.
 
 ---
 
-我们做了什么
+**我们做了什么**
 
-### 1. 逆向工程 Google 的系统
+### 1. 逆向 Google 的系统
 
-通过静态分析（反编译 `services.jar`）、运行时检查（Frida hook）、网络协议分析（抓包 Robin gRPC），我们摸清了整套架构：
+通过静态分析（反编译 `services.jar`）、运行时检查（Frida hook）、网络协议分析（抓包 Robin gRPC），把整套架构摸清了：
 
-- **ComputerControl Manager Service** - 系统核心，管理虚拟屏幕生命周期
-- **六层安全门的实现细节** - 每一道门在哪检查、如何绕过
-- **Robin Protocol** - Google 专有的 gRPC 协议，连接 Gemini Pro
-- **AIDL 接口** - 应用层如何向系统请求 Session
+- **ComputerControl Manager Service** - 系统核心，管虚拟屏幕生命周期
+- **六道安全门的实现细节** - 每道门在哪检查、怎么绕过
+- **Robin Protocol** - Google 专有的 gRPC 协议，连 Gemini Pro
+- **AIDL 接口** - 应用怎么向系统请求 Session
 
-所有这些都没开源，没文档。是我们一点点抠出来的。
+这些都没开源，没文档。一点点抠出来的。
 
-### 2. 打补丁：移除限制
+### 2. 打补丁：去掉限制
 
-我们修改了系统组件，绕过安全门：
+修改系统组件，绕过安全门：
 
 ```java
 // 原始代码
@@ -250,34 +251,34 @@ private static final Set<String> ALLOWED_PACKAGES = ImmutableSet.of(
     "com.google.android.googlequicksearchbox"
 );
 
-// 补丁后
+// 打补丁后
 private static final Set<String> ALLOWED_PACKAGES = ImmutableSet.of(
     "*"  // 允许任何应用
 );
 ```
 
-类似的修改应用到 Feature Flag、权限检查、证书校验等所有六层门。结果：任何应用都能创建 ComputerControl Session。
+Feature Flag、权限检查、证书校验——六道门全改。结果：任何应用都能创建 ComputerControl Session。
 
-### 3. 替换 AI 后端：从 Gemini 到 OpenRouter
+### 3. 换 AI 后端：从 Gemini 换成 OpenRouter
 
-Google 的 Bonobo agent 硬编码连接到 Robin 协议 → Gemini Pro。我们换成：
+Google 的 Bonobo agent 硬编码连接：Robin 协议 → Gemini Pro。我们换成：
 
 ```
-openGemi Agent → OpenRouter Gateway → 你选择的任何模型
+OpenGemi Agent → OpenRouter Gateway → 你选的任何模型
 ```
 
-OpenRouter 是一个 AI 模型聚合器，支持：
+OpenRouter 是个 AI 模型聚合器，支持：
 - Anthropic Claude（Sonnet、Opus）
 - OpenAI GPT-4o/o1
-- Google Gemini Pro（讽刺的是，你可以通过 OpenRouter 用它）
+- Google Gemini Pro（讽刺吧，通过 OpenRouter 还能用它）
 - Meta Llama 3.3
 - 以及几十个其他开源/商业模型
 
-你只需要提供 API key，选择模型，其余的交给 openGemi。
+提供 API key，选模型，剩下的 OpenGemi 搞定。
 
-### 4. 开源整个实现
+### 4. 全部开源
 
-- 系统补丁（diff 文件，应用到 AOSP）
+- 系统补丁（diff 文件，打到 AOSP 上）
 - Agent 实现（Kotlin，开源 APK）
 - 技术文档（[docs/](docs/)）
 - 安装指南（[INSTALL.md](INSTALL.md)）
@@ -295,22 +296,22 @@ Running simultaneously. Zero interference.
 
 This isn't science fiction. This is technology Google already built. They just locked it inside the Gemini + Pixel walled garden.
 
-**openGemi tears down the wall.**
+**OpenGemi tears down the wall.**
 
 ---
 
-这意味着什么
+**这意味着什么**
 
-**你的手机变成两个手机。**
+**你的手机变成两个。**
 
-一个给你用——刷社交媒体、看视频、回消息。
-一个给 AI 用——订餐厅、比价格、填表单。
+一个给你——刷社交、看视频、回消息。
+一个给 AI——订餐厅、比价格、填表单。
 
-同时运行。零干扰。
+同时跑。谁也不影响谁。
 
-这不是科幻。这是 Google 已经造出来的技术。只是他们把它锁在 Gemini + Pixel 的围墙里。
+这不是科幻。这是 Google 已经造出来的技术。只是他们把它锁在 Gemini + Pixel 的围墙里了。
 
-**openGemi 把墙拆了。**
+**OpenGemi 把墙拆了。**
 
 ---
 
@@ -329,18 +330,18 @@ But if you're a developer, researcher, or just a deeply curious geek—this is c
 
 ---
 
-当前状态
+**当前状态**
 
 **这是研究原型，不是产品。**
 
 需要：
-- Rooted Android 17 设备或自定义 ROM
-- 修改系统文件（不是简单装个 APK）
-- 懂 Android 底层（知道 ADB、fastboot、刷机是什么）
+- Root 过的 Android 17 设备或自定义 ROM
+- 系统级修改（不是装个 APK 那么简单）
+- 懂 Android 底层（知道 ADB、fastboot、刷机是啥）
 
-如果你不确定这些是什么意思，现在还不是你用的时候。等后续版本可能会有更简单的安装方式（虽然不保证）。
+不确定这些是啥意思的话，现在还不是你的时候。等将来可能会有更简单的安装方式（不保证）。
 
-但如果你是开发者、研究者、或者就是好奇心重的 geek——这是目前唯一能让你在非 Pixel 设备上、用非 Gemini 模型、体验 Google 级别移动 AI 自动化的方式。
+但如果你是开发者、研究者、或者就是好奇心爆棚——这是目前唯一能在非 Pixel 设备上、用非 Gemini 模型、体验 Google 级移动 AI 自动化的方法。
 
 ---
 
@@ -349,7 +350,7 @@ But if you're a developer, researcher, or just a deeply curious geek—this is c
 1. **Read the documentation** to understand what Google built, why it matters, how it's implemented:
    - [What Google Built](docs/01-what-google-built.md)
    - [Why This Matters](docs/02-why-it-matters.md)
-   - [How openGemi Works](docs/03-how-opengemi-works.md)
+   - [How OpenGemi Works](docs/03-how-opengemi-works.md)
 
 2. **Install the system** - Two paths:
    - [Full Build](INSTALL.md#method-1-system-build): Compile patched Android system image (clean but slow, 2-8 hours)
@@ -363,20 +364,20 @@ But if you're a developer, researcher, or just a deeply curious geek—this is c
 
 ---
 
-快速开始
+**快速开始**
 
-1. **阅读文档**，了解 Google 造了什么、为什么重要、怎么实现的：
+1. **读文档**，了解 Google 造了啥、为啥重要、怎么实现的：
    - [Google 造了什么](docs/01-what-google-built.md)
-   - [为什么这个很重要](docs/02-why-it-matters.md)
-   - [openGemi 是怎么做的](docs/03-how-opengemi-works.md)
+   - [为什么重要](docs/02-why-it-matters.md)
+   - [OpenGemi 怎么做的](docs/03-how-opengemi-works.md)
 
-2. **安装系统** - 两条路：
-   - [完整构建](INSTALL.md#method-1-system-build)：编译打补丁的 Android 系统镜像（干净但慢，2-8 小时）
-   - [运行时补丁](INSTALL.md#method-2-runtime-patching)：用 Frida 在运行时绕过检查（快但每次重启失效）
+2. **装系统** - 两条路：
+   - [完整构建](INSTALL.md#method-1-system-build)：编译打过补丁的 Android 系统镜像（干净但慢，2-8 小时）
+   - [运行时补丁](INSTALL.md#method-2-runtime-patching)：用 Frida 运行时绕过检查（快但重启就没了）
 
-3. **配置 OpenRouter**，选择你想用的 AI 模型
+3. **配置 OpenRouter**，选你想用的 AI 模型
 
-4. **运行第一个 Agent** - 试试简单的："打开设置"，"查天气"，"订明天的餐厅"
+4. **跑第一个 agent** - 试点简单的："打开设置"、"查天气"、"订明天的餐厅"
 
 5. **反馈问题** - [GitHub Issues](https://github.com/Equality-Machine/efflora-release/issues)
 
@@ -395,16 +396,16 @@ In theory, any vision-capable model OpenRouter supports will work. As long as th
 
 ---
 
-支持的模型
+**支持的模型**
 
-实测可用：
+测过能用的：
 
 - **Anthropic Claude** 3.5 Sonnet / Opus（推荐，理解力最强）
 - **OpenAI GPT-4o**（快，便宜）
-- **Google Gemini Pro**（via OpenRouter，讽刺吧）
+- **Google Gemini Pro**（通过 OpenRouter——讽刺吧）
 - **Meta Llama 3.3** 70B（开源选项）
 
-理论上 OpenRouter 支持的所有视觉模型都能用。只要模型能看图、输出结构化 action，就行。
+理论上 OpenRouter 支持的所有视觉模型都能用。只要模型能看图、能输出结构化操作指令，就行。
 
 ---
 
@@ -416,8 +417,8 @@ Now it's open. Let's see what the world does with it.
 
 ---
 
-造这个项目是因为好奇：当你把封闭的东西打开，会发生什么。
+造这个是因为好奇：把封闭的东西打开，会发生什么？
 
-结果是：**Google 已经解决了移动 AI 自动化的核心难题。只是他们把解决方案锁起来了。**
+结果发现：**Google 早就解决了移动 AI 自动化的核心问题。只是他们把答案锁起来了。**
 
-现在它开放了。看看世界会怎么用它。
+现在锁开了。看世界会拿它干什么吧。
