@@ -1,0 +1,55 @@
+# Android / AOSP
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+*.so
+*.img
+*.jar
+!gradle-wrapper.jar
+build/
+out/
+.gradle/
+local.properties
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+.DS_Store
+
+# API Keys and Secrets
+*.key
+*.pem
+secrets.properties
+openrouter_key.txt
+api_keys/
+
+# System patches (keep patch files, not compiled artifacts)
+*.img
+*.tar
+*.zip
+system_patched/
+aosp-android17/
+
+# Emulator
+*.avd/
+emulator-*.log
+
+# Frida
+frida-server*
+*.frida.log
+
+# Documentation builds
+docs/_build/
+*.pdf
+*.epub
+
+# Test artifacts
+test-screenshots/
+test-logs/
+*.trace
